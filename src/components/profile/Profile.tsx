@@ -19,9 +19,6 @@ const useStyles = makeStyles((theme: Theme) =>
         root: {
             flexGrow: 1,
         },
-        grow: {
-            flexGrow: 1,
-        },
         card: {
             maxWidth: 345,
             margin: '0 auto',
@@ -29,8 +26,8 @@ const useStyles = makeStyles((theme: Theme) =>
             textAlign: 'center',
         },
         media: {
-            height: 128,
-            width: 128,
+            height: 64,
+            width: 64,
             objectFit: 'cover',
             margin: '0 auto',
         },
