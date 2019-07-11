@@ -1,23 +1,27 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Theme, Container, makeStyles, createStyles } from '@material-ui/core';
+
 import AppNavBar from './components/common/AppNavBar';
-import IndexComponent from './components/index/Index'
-import { useAuth0 } from './react-auth0-spa';
-import Loading from './components/common/Loading';
+import BottomNav from './components/common/BottomNav';
+import NoMatch from './components/common/NoMatch';
+
+import Index from './components/index/Index'
+import Groups from './components/group/Groups'
+import Profile from './components/profile/Profile';
+import About from './components/about/About';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      display: 'flex',
-      flexDirection: 'column',
-      minHeight: '100vh',
+    rootContainer: {
+      textAlign: 'center',
+      paddingTop: theme.spacing(5),
+      paddingBottom: theme.spacing(5),
     },
     main: {
-      marginTop: theme.spacing(8),
-      marginBottom: theme.spacing(2),
+      marginBottom: theme.spacing(3),
     },
-    footer: {
+    madeWithLove: {
       backgroundColor: theme.palette.primary.dark,
       padding: theme.spacing(2),
       textAlign: 'center',
@@ -31,30 +35,32 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const App: React.FC = () => {
   const classes = useStyles({});
-  const { loading, user }: any = useAuth0();
-
-  if (loading) {
-    return <Loading />;
-  }
 
   return (
-    <div className={classes.root}>
-      <Router>
-        <header>
-          <nav>
-            <AppNavBar user={user} />
-          </nav>
-        </header>
-        <main className={classes.main}>
-          <Route path="/" component={IndexComponent} />
-        </main>
-        <footer className={classes.footer}>
-          <Container maxWidth="sm">
-            Made with <span role="img" aria-label="heart">❤️</span> in <b>Zurich</b>
-          </Container>
-        </footer>
-      </Router>
-    </div>
+    <Router>
+      <header>
+        <nav>
+          <AppNavBar />
+        </nav>
+      </header>
+      <main className={classes.main}>
+        <Container className={classes.rootContainer}>
+          <Switch>
+            <Route path="/" exact component={Index} />
+            <Route path="/groups" component={Groups} />
+            <Route path="/profile" component={Profile} />
+            <Route path="/about" component={About} />
+            <Route component={NoMatch} />
+          </Switch>
+        </Container>
+        <Container maxWidth="xl" className={classes.madeWithLove}>
+          Made with <span role="img" aria-label="heart">❤️</span> in <b>Zurich</b>
+        </Container>
+      </main>
+      <footer>
+        <BottomNav />
+      </footer>
+    </Router>
   );
 }
 

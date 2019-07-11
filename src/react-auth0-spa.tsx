@@ -27,19 +27,19 @@ export const Auth0Provider = ({
                 onRedirectCallback(appState);
             }
 
-            const isAuthenticatedLocal = await auth0FromHook.isAuthenticated();
+            const isAuthenticated = await auth0FromHook.isAuthenticated();
 
-            setIsAuthenticated(isAuthenticatedLocal);
+            setIsAuthenticated(isAuthenticated);
 
-            if (isAuthenticatedLocal) {
-                const localUser = await auth0FromHook.getUser();
-                setUser(localUser);
+            if (isAuthenticated) {
+                const user = await auth0FromHook.getUser();
+                setUser(user);
             }
 
             setLoading(false);
         };
         initAuth0();
-    // eslint-disable-next-line
+        // eslint-disable-next-line
     }, []);
 
     const loginWithPopup = async (params = {}) => {
@@ -47,23 +47,22 @@ export const Auth0Provider = ({
         try {
             await auth0Client.loginWithPopup(params);
         } catch (error) {
-            // tslint:disable-next-line:no-console
             console.error(error);
         } finally {
             setPopupOpen(false);
         }
-        const localUser = await auth0Client.getUser();
-        setUser(localUser);
+        const user = await auth0Client.getUser();
+        setUser(user);
         setIsAuthenticated(true);
     };
 
     const handleRedirectCallback = async () => {
         setLoading(true);
         await auth0Client.handleRedirectCallback();
-        const localUser = await auth0Client.getUser();
+        const user = await auth0Client.getUser();
         setLoading(false);
         setIsAuthenticated(true);
-        setUser(localUser);
+        setUser(user);
     };
     return (
         <Auth0Context.Provider
@@ -78,10 +77,9 @@ export const Auth0Provider = ({
                 loginWithRedirect: (...p: any) => auth0Client.loginWithRedirect(...p),
                 getTokenSilently: (...p: any) => auth0Client.getTokenSilently(...p),
                 getTokenWithPopup: (...p: any) => auth0Client.getTokenWithPopup(...p),
-                logout: (...p: any) => auth0Client.logout(...p),
+                logout: (...p: any) => auth0Client.logout(...p)
             }}
         >
-
             {children}
         </Auth0Context.Provider>
     );
