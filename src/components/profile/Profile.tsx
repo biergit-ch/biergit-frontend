@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { useAuth0 } from '../../react-auth0-spa';
+import { RouteComponentProps } from 'react-router';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -40,9 +41,9 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export default function Profile() {
+const Profile: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
     const classes = useStyles({});
-    const { user, isAuthenticated, loginWithPopup, logout }: any = useAuth0();
+    const { user, isAuthenticated, loginWithRedirect, logout }: any = useAuth0();
 
     const [authenticated, setAuthenticated] = useState(false);
 
@@ -51,7 +52,9 @@ export default function Profile() {
     }, [isAuthenticated, user])
 
     const signIn = async () => {
-        await loginWithPopup();
+        await loginWithRedirect({
+            appState: { targetUrl: '/' }
+        });
     }
 
     const signOut = () => {
@@ -97,3 +100,5 @@ export default function Profile() {
         </div>
     );
 }
+
+export default Profile;

@@ -1,5 +1,4 @@
 {
-    "domain": "biergit.eu.auth0.com",
-    "clientId": "pZWjfrjAPwFZF0GwRxEUHBkHtGOUKZry",
-    "audience": ""
-  }
+  "domain": "biergit.eu.auth0.com",
+  "clientId": "pZWjfrjAPwFZF0GwRxEUHBkHtGOUKZry"
+}

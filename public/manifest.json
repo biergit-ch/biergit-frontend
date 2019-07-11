@@ -2,7 +2,7 @@
   "name": "biergit",
   "short_name": "biergit",
   "background_color": "#FFFFFF",
-  "theme_color": "#673ab7",
+  "theme_color": "#ffc107",
   "description": "invite friends and spend a beer",
   "display": "standalone",
   "start_url": "/",
