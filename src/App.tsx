@@ -13,13 +13,19 @@ import About from './components/about/About';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    root: {
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: '100vh',
+    },
     rootContainer: {
       textAlign: 'center',
       paddingTop: theme.spacing(5),
       paddingBottom: theme.spacing(5),
     },
     main: {
-      marginBottom: theme.spacing(3),
+      marginTop: theme.spacing(8),
+      marginBottom: theme.spacing(2),
     },
     madeWithLove: {
       backgroundColor: theme.palette.primary.dark,
@@ -29,6 +35,11 @@ const useStyles = makeStyles((theme: Theme) =>
       color: theme.palette.primary.contrastText,
       minHeight: '5vh',
       marginTop: 'auto',
+      width: '100%',
+    },
+    footer: {
+      marginTop: 'auto',
+      backgroundColor: 'white',
     },
   }),
 );
@@ -37,30 +48,32 @@ const App: React.FC = () => {
   const classes = useStyles({});
 
   return (
-    <Router>
-      <header>
-        <nav>
-          <AppNavBar />
-        </nav>
-      </header>
-      <main className={classes.main}>
-        <Container className={classes.rootContainer}>
-          <Switch>
-            <Route path="/" exact component={Index} />
-            <Route path="/groups" component={Groups} />
-            <Route path="/profile" component={Profile} />
-            <Route path="/about" component={About} />
-            <Route component={NoMatch} />
-          </Switch>
-        </Container>
-        <Container maxWidth="xl" className={classes.madeWithLove}>
-          Made with <span role="img" aria-label="heart">❤️</span> in <b>Zurich</b>
-        </Container>
-      </main>
-      <footer>
-        <BottomNav />
-      </footer>
-    </Router>
+    <div className={classes.root}>
+      <Router>
+        <header>
+          <nav>
+            <AppNavBar />
+          </nav>
+        </header>
+        <main className={classes.main}>
+          <Container className={classes.rootContainer}>
+            <Switch>
+              <Route path="/" exact component={Index} />
+              <Route path="/groups" component={Groups} />
+              <Route path="/profile" component={Profile} />
+              <Route path="/about" component={About} />
+              <Route component={NoMatch} />
+            </Switch>
+          </Container>
+        </main>
+        <footer className={classes.footer}>
+          <Container maxWidth="xl" className={classes.madeWithLove}>
+            Made with <span role="img" aria-label="heart">❤️</span> in <b>Zurich</b>
+          </Container>
+          <BottomNav />
+        </footer>
+      </Router>
+    </div>
   );
 }
 
