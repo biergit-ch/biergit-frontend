@@ -16,11 +16,7 @@ import { RouteComponentProps } from 'react-router';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        root: {
-            flexGrow: 1,
-        },
         card: {
-            maxWidth: 345,
             margin: '0 auto',
             justifyContent: 'center',
             textAlign: 'center',
@@ -58,43 +54,39 @@ const Profile: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
         logout();
     }
 
-
     return (
-        <div className={classes.root}>
-            <Grid
-                container={true}
-                spacing={3}
-                justify="center"
-                style={{ padding: 1 }}
-            >
-                {authenticated && (<Grid item={true} xs={12}>
-                    <Card className={classes.card}>
-                        <CardActionArea>
-                            <CardMedia
-                                className={classes.media}
-                                image={user.picture}
-                                title={user.name}
-                            />
-                            <CardContent>
-                                <Typography gutterBottom={true} variant="h5" component="h2">
-                                    {user.name}
-                                </Typography>
-                                <pre>
-                                    <Typography component="p">
-                                        {JSON.stringify(user, null, 2)}
-                                    </Typography>
-                                </pre>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Grid>
-                )}
-                <Grid item={true} xs={12}>
-                    {!authenticated && (<Button className={classes.fancyButton} onClick={signIn}>SIGNIN</Button>)}
-                    {authenticated && (<Button className={classes.fancyButton} onClick={signOut}>SIGNOUT</Button>)}
-                </Grid>
+        <Grid
+            container={true}
+            spacing={3}
+        >
+            {authenticated && (<Grid item={true} xs={12}>
+                <Card className={classes.card}>
+                    <CardActionArea>
+                        <CardMedia
+                            className={classes.media}
+                            image={user.picture}
+                            title={user.name}
+                        />
+                        <CardContent>
+                            <Typography gutterBottom={true} variant="h5" component="h2">
+                                {user.name}
+                            </Typography>
+                            <Typography gutterBottom={true} variant="h5" component="h2">
+                                {user.nickname}
+                            </Typography>
+                            <Typography gutterBottom={true} variant="h5" component="h2">
+                                {user.email}
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                </Card>
             </Grid>
-        </div>
+            )}
+            <Grid item={true} xs={12}>
+                {!authenticated && (<Button className={classes.fancyButton} onClick={signIn}>SIGNIN</Button>)}
+                {authenticated && (<Button className={classes.fancyButton} onClick={signOut}>SIGNOUT</Button>)}
+            </Grid>
+        </Grid>
     );
 }
 

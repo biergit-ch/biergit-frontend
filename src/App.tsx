@@ -20,8 +20,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     rootContainer: {
       textAlign: 'center',
-      paddingTop: theme.spacing(5),
-      paddingBottom: theme.spacing(5),
     },
     main: {
       marginTop: theme.spacing(8),
