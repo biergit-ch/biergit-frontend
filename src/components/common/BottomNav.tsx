@@ -1,0 +1,46 @@
+import React, { useEffect, useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import HomeIcon from '@material-ui/icons/Home';
+import PersonIcon from '@material-ui/icons/Person';
+import GroupIcon from '@material-ui/icons/Group';
+import InfoIcon from '@material-ui/icons/Info';
+import { Container } from '@material-ui/core';
+import { RouteComponentProps, withRouter } from 'react-router';
+import { useAuth0 } from '../../react-auth0-spa';
+
+const useStyles = makeStyles({
+    root: {
+    },
+});
+
+const BottomNav: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
+    const classes = useStyles();
+    const [value, setValue] = React.useState('/');
+    const { user, isAuthenticated }: any = useAuth0();
+
+    const [authenticated, setAuthenticated] = useState(false);
+
+    useEffect(() => {
+        setAuthenticated(isAuthenticated)
+    }, [isAuthenticated, user])
+
+    function handleChange(event: React.ChangeEvent<{}>, newValue: string) {
+        setValue(newValue);
+        props.history.push(`${newValue}`);
+    }
+
+    return (
+        <Container>
+            <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
+                <BottomNavigationAction label="Home" value="/" icon={<HomeIcon />} />
+                {authenticated && (<BottomNavigationAction label="Group" value="/groups" icon={<GroupIcon />} />)}
+                <BottomNavigationAction label="Profile" value="/profile" icon={<PersonIcon />} />
+                <BottomNavigationAction label="Info" value="/about" icon={<InfoIcon />} />
+            </BottomNavigation>
+        </Container>
+    );
+}
+
+export default withRouter(BottomNav);
