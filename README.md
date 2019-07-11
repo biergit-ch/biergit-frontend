@@ -1,5 +1,7 @@
 # Biergit app-frontend
 
+[![Build Status](https://dev.azure.com/lucahost/biergit-frontend/_apis/build/status/biergit-ch.biergit-frontend?branchName=master)](https://dev.azure.com/lucahost/biergit-frontend/_build/latest?definitionId=3&branchName=master)
+
 ## Introduction
 
 *Frontend of the **biergit** app*
