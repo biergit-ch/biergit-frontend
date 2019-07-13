@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import theme from "./theme";
 import * as serviceWorker from './serviceWorker';
 import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+
+import App from './App';
+import theme from "./theme";
+
+import './i18n';
+
 import { Auth0Provider } from './react-auth0-spa';
 import config from "./auth_config.json";
+
 
 const onRedirectCallback = (appState: any) => {
     window.history.replaceState(
