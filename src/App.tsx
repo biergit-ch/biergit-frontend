@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import { Theme, Container, makeStyles, createStyles } from '@material-ui/core';
 
 import AppNavBar from './components/common/AppNavBar';
@@ -11,6 +11,7 @@ import Groups from './components/group/Groups'
 import Profile from './components/profile/Profile';
 import About from './components/about/About';
 import Login from './components/login/Login';
+import PrivateRoute from './components/common/PrivateRoute';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -58,10 +59,11 @@ const App: React.FC = () => {
           <main className={classes.main}>
             <Container className={classes.rootContainer}>
               <Switch>
-                <Route path="/" exact component={Index} />
+                <Redirect exact from='/' to='/home' />
+                <PrivateRoute path="/home" component={Index} />
                 <Route path="/login" component={Login} />
-                <Route path="/groups" component={Groups} />
-                <Route path="/profile" component={Profile} />
+                <PrivateRoute path="/groups" component={Groups} />
+                <PrivateRoute path="/profile" component={Profile} />
                 <Route path="/about" component={About} />
                 <Route component={NoMatch} />
               </Switch>

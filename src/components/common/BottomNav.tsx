@@ -34,9 +34,9 @@ const BottomNav: React.FC<RouteComponentProps> = (props: RouteComponentProps) =>
 
     return (
         <BottomNavigation value={value} onChange={handleChange} className={classes.bottomNav}>
-            <BottomNavigationAction label="Home" value="/" icon={<HomeIcon />} />
+            <BottomNavigationAction label="Home" value="/home" icon={<HomeIcon />} />
             {authenticated && (<BottomNavigationAction label="Group" value="/groups" icon={<GroupIcon />} />)}
-            <BottomNavigationAction label="Profile" value="/profile" icon={<PersonIcon />} />
+            {authenticated && (<BottomNavigationAction label="Profile" value="/profile" icon={<PersonIcon />} />)}
             <BottomNavigationAction label="Info" value="/about" icon={<InfoIcon />} />
         </BottomNavigation>
     );
