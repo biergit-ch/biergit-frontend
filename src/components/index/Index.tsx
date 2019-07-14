@@ -1,11 +1,18 @@
 import React from 'react';
-import { Container, createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
 import { useTranslation } from 'react-i18next';
+
+import { Container, createStyles, makeStyles, Theme, Typography, Grid, Fab } from "@material-ui/core";
+import AddIcon from '@material-ui/icons/Add';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
+import logo from './../common/images/biergit-ch.png';
+import mockData from './../../mock-data.json';
+import history from '../../history';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        root: {
-
+        addButton: {
+            margin: theme.spacing(1),
         }
     })
 );
@@ -14,9 +21,33 @@ const Index: React.FC = () => {
     const classes = useStyles({});
     const { t } = useTranslation();
 
+    const currentUser = mockData.users[0];
+
+    const createGroup = () => {
+        history.push('/creategroup');
+    }
+
     return (
-        <Container className={classes.root}>
-            <Typography variant="h2">{t('index_welcome')}</Typography>
+        <Container maxWidth="sm">
+            <Grid container spacing={3}>
+                <Grid item xs={12}>
+                    <img src={logo} alt="logo" height="100" />
+                </Grid>
+                <Grid item xs={12}>
+                    <Typography variant="h6">{t('index_cheers')} {currentUser.name}</Typography>
+                </Grid>
+                <Grid item xs={12}>
+                    <Typography variant="body2">{t('index_invite')}</Typography>
+                </Grid>
+                <Grid item xs={12}>
+                    <ExpandMoreIcon />
+                </Grid>
+                <Grid item xs={12}>
+                    <Fab size="medium" color="secondary" aria-label="Add" className={classes.addButton} onClick={createGroup}>
+                        <AddIcon />
+                    </Fab>
+                </Grid>
+            </Grid>
         </Container>
     );
 }

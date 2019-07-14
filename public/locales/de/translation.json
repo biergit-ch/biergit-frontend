@@ -1,4 +1,7 @@
 {
     "login_welcome": "Dein Assistent für das soziale Getränk",
-    "login_signin": "Mit Google anmelden und Freunde einladen"
+    "login_signin": "Mit Google anmelden und Freunde einladen",
+    "index_cheers": "Prost",
+    "index_invite": "Lade jetzt deine Freunde zu einer Gruppe ein!",
+    "groups_header": "Deine Gruppen"
 }

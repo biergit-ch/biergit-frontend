@@ -12,16 +12,15 @@ import './i18n';
 import { Auth0Provider } from './react-auth0-spa';
 import config from "./auth_config.json";
 import history from './history';
+import Loading from './components/common/Loading';
 
 const onRedirectCallback = (appState: any) => {
-    debugger;
     history.push(
         appState && appState.targetUrl
             ? appState.targetUrl
             : window.location.pathname
     );
 };
-
 
 ReactDOM.render(
     <ThemeProvider theme={theme}>
@@ -32,7 +31,7 @@ ReactDOM.render(
             redirect_uri={window.location.origin}
             onRedirectCallback={onRedirectCallback}
         >
-            <Suspense fallback="loading">
+            <Suspense fallback={Loading}>
                 <App />
             </Suspense>
         </Auth0Provider>

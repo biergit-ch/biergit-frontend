@@ -1,4 +1,7 @@
 {
     "login_welcome": "Your Assistant For Socialized Drinking",
-    "login_signin": "Sign In With Google And Invite Your Friends"
+    "login_signin": "Sign In With Google And Invite Your Friends",
+    "index_cheers": "Cheers",
+    "index_invite": "Invite your friends now and create a group!",
+    "groups_header": "Your Groups"
 }

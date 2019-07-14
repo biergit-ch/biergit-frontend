@@ -1,3 +1,7 @@
-import { UserProfile } from './UserProfile';
+import { User } from './User';
+import { Group } from './Group';
+import { Expense } from './Expense';
 
-export type UserProfile = UserProfile;
+export type UserModel = User;
+export type GroupModel = Group;
+export type ExpenseModel = Expense;
