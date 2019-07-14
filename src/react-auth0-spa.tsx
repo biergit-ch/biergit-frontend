@@ -23,6 +23,7 @@ export const Auth0Provider = ({
             setAuth0(auth0FromHook);
 
             if (window.location.search.includes("code=")) {
+                debugger;
                 const { appState } = await auth0FromHook.handleRedirectCallback();
                 onRedirectCallback(appState);
             }
@@ -56,6 +57,7 @@ export const Auth0Provider = ({
     };
 
     const handleRedirectCallback = async () => {
+        debugger;
         setLoading(true);
         await auth0Client.handleRedirectCallback();
         const user = await auth0Client.getUser();

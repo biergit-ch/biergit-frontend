@@ -60,7 +60,7 @@ const App: React.FC = () => {
             <Container className={classes.rootContainer}>
               <Switch>
                 <Redirect exact from='/' to='/home' />
-                <PrivateRoute path="/home" component={Index} />
+                <Route path="/home" component={Index} />
                 <Route path="/login" component={Login} />
                 <PrivateRoute path="/groups" component={Groups} />
                 <PrivateRoute path="/profile" component={Profile} />

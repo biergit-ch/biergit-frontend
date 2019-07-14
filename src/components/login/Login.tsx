@@ -21,11 +21,13 @@ const useStyles = makeStyles((theme: Theme) =>
 const Login: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
     const classes = useStyles({});
     const { t } = useTranslation();
-    const { loginWithPopup }: any = useAuth0();
+    const { loginWithRedirect }: any = useAuth0();
 
     const signIn = async () => {
-        await loginWithPopup();
-        props.history.push('/')
+        await loginWithRedirect({
+            appState: { targetUrl: '/' }
+          });
+        //props.history.push('/')
     }
 
     return (

@@ -12,17 +12,19 @@ import './i18n';
 import { Auth0Provider } from './react-auth0-spa';
 import config from "./auth_config.json";
 
-
+// A function that routes the user to the right place
+// after login
 const onRedirectCallback = (appState: any) => {
+    debugger;
     window.history.replaceState(
-        {},
-        document.title,
-        appState && appState.targetUrl
-            ? appState.targetUrl
-            : window.location.pathname,
+      {},
+      document.title,
+      appState && appState.targetUrl
+        ? appState.targetUrl
+        : window.location.pathname
     );
-}
-
+  };
+  
 
 ReactDOM.render(
     <ThemeProvider theme={theme}>
