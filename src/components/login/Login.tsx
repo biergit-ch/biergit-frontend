@@ -1,11 +1,13 @@
 import React from 'react';
+import { withRouter, RouteComponentProps, Redirect } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { useAuth0 } from '../../react-auth0-spa';
+
 import { Container, createStyles, makeStyles, Theme, Typography, Button, Grid } from "@material-ui/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import { useTranslation } from 'react-i18next';
 
 import logo from './../common/images/biergit-ch.png';
-import { useAuth0 } from '../../react-auth0-spa';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import Loading from '../common/Loading';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -21,20 +23,20 @@ const useStyles = makeStyles((theme: Theme) =>
 const Login: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
     const classes = useStyles({});
     const { t } = useTranslation();
-    const { loginWithRedirect }: any = useAuth0();
+    const { loginWithRedirect, loading, isAuthenticated }: any = useAuth0();
 
     const signIn = async () => {
         await loginWithRedirect({
-            appState: { targetUrl: '/' }
-          });
-        //props.history.push('/')
+            appState: { targetUrl: '/home' }
+        });
     }
 
     return (
+        loading === true ? <Loading /> : isAuthenticated === false ?
         <Container className={classes.root}>
             <Grid container spacing={3}>
                 <Grid item xs={12}>
-                    <img src={logo} alt="logo" height="100"/>
+                    <img src={logo} alt="logo" height="100" />
                 </Grid>
                 <Grid item xs={12}>
                     <Typography variant="h6">{t('login_welcome')}</Typography>
@@ -49,7 +51,7 @@ const Login: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
                     <Button className={classes.loginButton} onClick={signIn}>SIGN IN</Button>
                 </Grid>
             </Grid>
-        </Container>
+        </Container> : <Redirect to='/home' />
     );
 }
 

@@ -1,17 +1,11 @@
-import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+import React from 'react';
 import { Theme, Container, makeStyles, createStyles } from '@material-ui/core';
+import { Router } from 'react-router-dom';
 
 import AppNavBar from './components/common/AppNavBar';
 import BottomNav from './components/common/BottomNav';
-import NoMatch from './components/common/NoMatch';
-
-import Index from './components/index/Index'
-import Groups from './components/group/Groups'
-import Profile from './components/profile/Profile';
-import About from './components/about/About';
-import Login from './components/login/Login';
-import PrivateRoute from './components/common/PrivateRoute';
+import Routes from './Routes';
+import history from './history';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -49,34 +43,24 @@ const App: React.FC = () => {
 
   return (
     <div className={classes.root}>
-      <Suspense fallback="loading">
-        <Router>
-          <header>
-            <nav>
-              <AppNavBar />
-            </nav>
-          </header>
-          <main className={classes.main}>
-            <Container className={classes.rootContainer}>
-              <Switch>
-                <Redirect exact from='/' to='/home' />
-                <Route path="/home" component={Index} />
-                <Route path="/login" component={Login} />
-                <PrivateRoute path="/groups" component={Groups} />
-                <PrivateRoute path="/profile" component={Profile} />
-                <Route path="/about" component={About} />
-                <Route component={NoMatch} />
-              </Switch>
-            </Container>
-          </main>
-          <footer className={classes.footer}>
-            <Container maxWidth="xl" className={classes.madeWithLove}>
-              Made with <span role="img" aria-label="heart">❤️</span> in <b>Zurich</b>
-            </Container>
-            <BottomNav />
-          </footer>
-        </Router>
-      </Suspense>
+      <Router history={history}>
+        <header>
+          <nav>
+            <AppNavBar />
+          </nav>
+        </header>
+        <main className={classes.main}>
+          <Container className={classes.rootContainer}>
+            <Routes />
+          </Container>
+        </main>
+        <footer className={classes.footer}>
+          <Container maxWidth="xl" className={classes.madeWithLove}>
+            Made with <span role="img" aria-label="heart">❤️</span> in <b>Zurich</b>
+          </Container>
+          <BottomNav />
+        </footer>
+      </Router>
     </div>
   );
 }
