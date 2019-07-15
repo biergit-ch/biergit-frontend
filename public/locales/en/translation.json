@@ -3,5 +3,6 @@
     "login_signin": "Sign In With Google And Invite Your Friends",
     "index_cheers": "Cheers",
     "index_invite": "Invite your friends now and create a group!",
-    "groups_header": "Your Groups"
+    "groups_header": "Choose group",
+    "group_creategroup": "Create new group"
 }

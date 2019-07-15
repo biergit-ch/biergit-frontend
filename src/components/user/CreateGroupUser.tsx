@@ -1,9 +1,19 @@
 import React from 'react';
-import { ListItem, ListItemAvatar, ListItemText, ListItemSecondaryAction, Checkbox } from '@material-ui/core';
-
-import PersonIcon from '@material-ui/icons/Person';
+import { ListItem, ListItemAvatar, ListItemText, ListItemSecondaryAction, Checkbox, Avatar, makeStyles, Theme, createStyles } from '@material-ui/core';
 
 import mockData from '../../mock-data.json';
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        userAvatar: {
+            margin: 10,
+        },
+        userName: {
+            margin: 10,
+        },
+    })
+)
+
 
 interface UserProps {
     userId: string;
@@ -12,7 +22,7 @@ interface UserProps {
 const CreateGroupUser: React.FC<UserProps> = (props: UserProps) => {
 
     const [checked, setChecked] = React.useState(["1"]);
-
+    const classes = useStyles();
 
     const handleToggle = (value: string) => () => {
         const currentIndex = checked.indexOf(value);
@@ -32,9 +42,9 @@ const CreateGroupUser: React.FC<UserProps> = (props: UserProps) => {
     return (
         <ListItem key={user.user_id}>
             <ListItemAvatar>
-                <PersonIcon />
+                <Avatar src={user.picture} alt="Group Logo" className={classes.userAvatar} />
             </ListItemAvatar>
-            <ListItemText primary={user.user_id} />
+            <ListItemText primary={user.name} className={classes.userName} />
             <ListItemSecondaryAction>
                 <Checkbox
                     edge="end"

@@ -22,7 +22,7 @@ const Group: React.FC<RouteComponentProps<GroupIdentificable>> = (props: RouteCo
     return (
         <Container maxWidth="sm">
             <div>
-                <Typography variant="h4">{actGroup.id}</Typography>
+                <Typography variant="h4">{actGroup.name}</Typography>
 
                 <List className={classes.memberList}>
                     {(

@@ -3,5 +3,6 @@
     "login_signin": "Mit Google anmelden und Freunde einladen",
     "index_cheers": "Prost",
     "index_invite": "Lade jetzt deine Freunde zu einer Gruppe ein!",
-    "groups_header": "Deine Gruppen"
+    "groups_header": "Gruppe auswählen",
+    "group_creategroup": "Gruppe erstellen"
 }
