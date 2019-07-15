@@ -1,7 +1,7 @@
 import React from 'react';
 import { ListItem, ListItemAvatar, ListItemText, ListItemSecondaryAction, Checkbox, Avatar, makeStyles, Theme, createStyles } from '@material-ui/core';
-
-import mockData from '../../mock-data.json';
+import { AppState } from '../../store';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -14,9 +14,9 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 )
 
-
 interface UserProps {
     userId: string;
+    toggleCheckedUser: Function;
 }
 
 const CreateGroupUser: React.FC<UserProps> = (props: UserProps) => {
@@ -33,11 +33,11 @@ const CreateGroupUser: React.FC<UserProps> = (props: UserProps) => {
         } else {
             newChecked.splice(currentIndex, 1);
         }
-
+        props.toggleCheckedUser(value);
         setChecked(newChecked);
     };
 
-    const user = mockData.users.filter(user => user.user_id === props.userId)[0];
+    const user = useSelector((state: AppState) => state.user.users.filter(user => user.user_id === props.userId)[0]);
     const labelId = `checkbox-list-secondary-label-${user.user_id}`;
     return (
         <ListItem key={user.user_id}>

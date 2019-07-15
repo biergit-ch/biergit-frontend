@@ -1,11 +1,8 @@
 import React from 'react';
 import { ListItem, ListItemAvatar, ListItemText, ListItemSecondaryAction, makeStyles, createStyles, Theme, Avatar } from '@material-ui/core';
 
-import mockData from '../../mock-data.json';
-
-interface UserProps {
-    userId: string;
-}
+import { AppState } from '../../store';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -18,9 +15,13 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 )
 
+interface UserProps {
+    userId: string;
+}
+
 const GroupUser: React.FC<UserProps> = (props: UserProps) => {
     const classes = useStyles();
-    const user = mockData.users.filter(user => user.user_id === props.userId)[0];
+    const user = useSelector((state: AppState) => state.user.users.filter(user => user.user_id === props.userId)[0]);
     return (
         <ListItem key={user.user_id}>
             <ListItemAvatar>

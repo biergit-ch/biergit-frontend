@@ -8,7 +8,6 @@ export interface User {
     username: string;
     email: string;
     picture: any;
-    identities: [];
-    expenses: Expense[];
-    groups: Group[];
+    expenses?: Expense[];
+    groups?: Group[];
 }

@@ -13,8 +13,8 @@ import { Auth0Provider } from './react-auth0-spa';
 import config from "./auth_config.json";
 import history from './history';
 import Loading from './components/common/Loading';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import configureStore from "./store";
 
 const onRedirectCallback = (appState: any) => {
     history.push(
@@ -24,7 +24,7 @@ const onRedirectCallback = (appState: any) => {
     );
 };
 
-const store = createStore(rootReducer)
+const store = configureStore();
 
 ReactDOM.render(
     <ThemeProvider theme={theme}>

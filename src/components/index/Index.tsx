@@ -6,8 +6,9 @@ import AddIcon from '@material-ui/icons/Add';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import logo from './../common/images/biergit-ch.png';
-import mockData from './../../mock-data.json';
 import history from '../../history';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../store';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -17,11 +18,12 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
+
 const Index: React.FC = () => {
     const classes = useStyles({});
     const { t } = useTranslation();
 
-    const currentUser = mockData.users[0];
+    const currentUser = useSelector((state: AppState) => state.user.users[0]);
 
     const createGroup = () => {
         history.push('/creategroup');

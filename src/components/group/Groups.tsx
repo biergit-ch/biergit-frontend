@@ -9,10 +9,10 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AddIcon from '@material-ui/icons/Add';
 import SearchIcon from '@material-ui/icons/Search';
 
-import mockData from "./../../mock-data.json";
-
 import Group from './Group';
 import history from '../../history';
+import { AppState } from '../../store';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -65,12 +65,15 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-const Groups: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
+interface GroupsProps extends RouteComponentProps {
+}
+
+const Groups: React.FC<GroupsProps> = (props: GroupsProps) => {
     const classes = useStyles();
     const { t } = useTranslation();
 
-    const currentUser = mockData.users[0];
-    const groups = mockData.groups.filter(group => group.members.some(userId => userId === currentUser.user_id));
+    const currentUser = useSelector((state: AppState) => state.user.users[0]);
+    const groups = useSelector((state: AppState) => state.group.groups.filter(group => group.members.some(userId => userId === currentUser.user_id)));
 
     const createGroup = () => {
         history.push('/creategroup');
