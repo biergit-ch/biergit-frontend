@@ -13,6 +13,8 @@ import { Auth0Provider } from './react-auth0-spa';
 import config from "./auth_config.json";
 import history from './history';
 import Loading from './components/common/Loading';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
 const onRedirectCallback = (appState: any) => {
     history.push(
@@ -21,6 +23,8 @@ const onRedirectCallback = (appState: any) => {
             : window.location.pathname
     );
 };
+
+const store = createStore(rootReducer)
 
 ReactDOM.render(
     <ThemeProvider theme={theme}>
@@ -32,7 +36,9 @@ ReactDOM.render(
             onRedirectCallback={onRedirectCallback}
         >
             <Suspense fallback={Loading}>
-                <App />
+                <Provider store={store}>
+                    <App />
+                </Provider>
             </Suspense>
         </Auth0Provider>
     </ThemeProvider>,
