@@ -38,6 +38,7 @@ const CreateGroup: React.FC<CreateGroupProps> = (props: CreateGroupProps) => {
             picture: "",
             members: [...checkedUsers, currentUser.user_id]
         }
+        // TODO @Luca createGroup Screen (Photo & Title)
         dispatch(addGroup(newGroup));
     }
 
