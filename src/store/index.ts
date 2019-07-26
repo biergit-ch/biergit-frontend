@@ -4,10 +4,12 @@ import { composeWithDevTools } from "redux-devtools-extension";
 
 import { groupReducer } from "./group/reducers";
 import { userReducer } from "./user/reducers";
+import { expenseReducer } from "./expense/reducers";
 
 const rootReducer = combineReducers({
     group: groupReducer,
     user: userReducer,
+    expense: expenseReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

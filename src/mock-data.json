@@ -41,7 +41,7 @@
             "members": [
                 "1",
                 "2",
-                "3", 
+                "3",
                 "4"
             ]
         },
@@ -78,10 +78,16 @@
             "to": "3"
         },
         {
-            "context": "b",
+            "context": "a",
             "amount": 1,
-            "from": "3",
+            "from": "1",
             "to": "4"
+        },
+        {
+            "context": "a",
+            "amount": 1,
+            "from": "2",
+            "to": "1"
         },
         {
             "context": "a",
@@ -93,7 +99,25 @@
             "context": "a",
             "amount": 1,
             "from": "2",
+            "to": "4"
+        },
+        {
+            "context": "a",
+            "amount": 1,
+            "from": "2",
             "to": "1"
+        },
+        {
+            "context": "a",
+            "amount": 1,
+            "from": "2",
+            "to": "3"
+        },
+        {
+            "context": "a",
+            "amount": 1,
+            "from": "2",
+            "to": "4"
         },
         {
             "context": "b",
@@ -102,10 +126,10 @@
             "to": "4"
         },
         {
-            "context": "a",
+            "context": "b",
             "amount": 1,
             "from": "3",
-            "to": "1"
+            "to": "4"
         }
     ]
 }

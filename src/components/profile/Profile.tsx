@@ -13,6 +13,7 @@ import {
 import { makeStyles } from '@material-ui/styles';
 import { useAuth0 } from '../../react-auth0-spa';
 import { RouteComponentProps } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -29,6 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         fancyButton: {
             background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+            textTransform: 'uppercase',
             marginLeft: 20,
         },
     })
@@ -37,7 +39,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const Profile: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
     const classes = useStyles({});
     const { user, isAuthenticated, loginWithRedirect, logout }: any = useAuth0();
-
+    const { t } = useTranslation();
     const [authenticated, setAuthenticated] = useState(false);
 
     useEffect(() => {
@@ -83,8 +85,8 @@ const Profile: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
             </Grid>
             )}
             <Grid item={true} xs={12}>
-                {!authenticated && (<Button className={classes.fancyButton} onClick={signIn}>SIGNIN</Button>)}
-                {authenticated && (<Button className={classes.fancyButton} onClick={signOut}>SIGNOUT</Button>)}
+                {!authenticated && (<Button className={classes.fancyButton} onClick={signIn}>{t('common_signin')}</Button>)}
+                {authenticated && (<Button className={classes.fancyButton} onClick={signOut}>{t('common_signout')}</Button>)}
             </Grid>
         </Grid>
     );

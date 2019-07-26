@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         loginButton: {
             background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+            textTransform: 'uppercase',
         },
     })
 );
@@ -48,7 +49,7 @@ const Login: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
                     <ExpandMoreIcon />
                 </Grid>
                 <Grid item xs={12}>
-                    <Button className={classes.loginButton} onClick={signIn}>SIGN IN</Button>
+                    <Button className={classes.loginButton} onClick={signIn}>{t('common_signin')}</Button>
                 </Grid>
             </Grid>
         </Container> : <Redirect to='/home' />
