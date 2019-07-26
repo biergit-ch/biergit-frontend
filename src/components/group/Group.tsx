@@ -31,7 +31,7 @@ interface GroupProps extends RouteComponentProps<GroupIdentificable> {
 const Group: React.FC<GroupProps> = (props: GroupProps) => {
     const classes = useStyles({});
     const actGroup = useSelector((state: AppState) => state.group.groups.filter(g => g.id === props.match.params.groupId)[0]);
-    const currentUser = useSelector((state: AppState) => state.user.users[0]);
+    const currentUser = useSelector((state: AppState) => state.user.currentUser);
     const [checkedUsers, setCheckedUsers] = useState<string[]>([]);
     const { t } = useTranslation();
     const dispatch = useDispatch();

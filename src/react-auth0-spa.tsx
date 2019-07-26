@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import createAuth0Client from "@auth0/auth0-spa-js";
+import { setCurrentUser } from "./store/user/actions";
 
 const DEFAULT_REDIRECT_CALLBACK = () =>
     window.history.replaceState({}, document.title, window.location.pathname);
@@ -33,6 +34,7 @@ export const Auth0Provider = ({
             if (isAuthenticated) {
                 const user = await auth0FromHook.getUser();
                 setUser(user);
+                setCurrentUser(user);
             }
 
             setLoading(false);
@@ -52,17 +54,18 @@ export const Auth0Provider = ({
         }
         const user = await auth0Client.getUser();
         setUser(user);
+        setCurrentUser(user);
         setIsAuthenticated(true);
     };
 
     const handleRedirectCallback = async () => {
-        debugger;
         setLoading(true);
         await auth0Client.handleRedirectCallback();
         const user = await auth0Client.getUser();
         setLoading(false);
         setIsAuthenticated(true);
         setUser(user);
+        setCurrentUser(user);
     };
     return (
         <Auth0Context.Provider

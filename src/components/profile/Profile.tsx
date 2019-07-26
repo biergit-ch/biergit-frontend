@@ -79,6 +79,9 @@ const Profile: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
                             <Typography gutterBottom={true} variant="h5" component="h2">
                                 {user.email}
                             </Typography>
+                            <Typography gutterBottom={true} variant="h5" component="h2">
+                                {user.id}
+                            </Typography>
                         </CardContent>
                     </CardActionArea>
                 </Card>
