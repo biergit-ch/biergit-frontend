@@ -40,15 +40,13 @@ interface UserProps {
 const GroupUser: React.FC<UserProps> = (props: UserProps) => {
     const classes = useStyles();
     const user = useSelector((state: AppState) => state.user.users.filter(user => user.user_id === props.userId)[0]);
-    const currentUser = useSelector((state: AppState) => state.user.users[0]);
+    const currentUser = useSelector((state: AppState) => state.user.currentUser);
     const groupExpenses = useSelector((state: AppState) => state.expense.expenses.filter(e => e.context === props.groupId));
     const fromCurrentUserToUserExpenses = groupExpenses.filter(e => e.from === currentUser.user_id && e.to === props.userId);
     const fromUserToCurrentUserExpenses = groupExpenses.filter(e => e.from === props.userId && e.to === currentUser.user_id);
 
-
     const plusAmount = fromCurrentUserToUserExpenses.reduce((prev, ex) => prev + ex.amount, 0);
     const minusAmount = fromUserToCurrentUserExpenses.reduce((prev, ex) => prev + ex.amount, 0);
-
     const expenseAmount = plusAmount - minusAmount;
 
     return (

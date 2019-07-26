@@ -28,7 +28,7 @@ const CreateGroup: React.FC<CreateGroupProps> = (props: CreateGroupProps) => {
     const [checkedUsers, setCheckedUsers] = useState<string[]>([]);
 
     const dispatch = useDispatch();
-    const currentUser = useSelector((state: AppState) => state.user.users[0]);
+    const currentUser = useSelector((state: AppState) => state.user.currentUser);
     const users = useSelector((state: AppState) => state.user.users.filter(user => user.user_id !== currentUser.user_id));
 
     const create = () => {

@@ -23,7 +23,7 @@ const Index: React.FC = () => {
     const classes = useStyles({});
     const { t } = useTranslation();
 
-    const currentUser = useSelector((state: AppState) => state.user.users[0]);
+    const currentUser = useSelector((state: AppState) => state.user.currentUser);
 
     const createGroup = () => {
         history.push('/creategroup');

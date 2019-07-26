@@ -72,7 +72,7 @@ const Groups: React.FC<GroupsProps> = (props: GroupsProps) => {
     const classes = useStyles();
     const { t } = useTranslation();
 
-    const currentUser = useSelector((state: AppState) => state.user.users[0]);
+    const currentUser = useSelector((state: AppState) => state.user.currentUser);
     const groups = useSelector((state: AppState) => state.group.groups.filter(group => group.members.some(userId => userId === currentUser.user_id)));
 
     const createGroup = () => {
