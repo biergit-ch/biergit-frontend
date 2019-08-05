@@ -24,8 +24,8 @@ const Routes: React.FC = () => {
                 <PrivateRoute path="/home" component={Index} />
                 <Route path="/login" component={Login} />
                 <Route path="/callback" component={Login} />
-                <PrivateRoute path="/groups" component={Groups} />
-                <PrivateRoute path="/creategroup" component={CreateGroup} />
+                <PrivateRoute path="/groups/create" component={CreateGroup} />
+                <PrivateRoute path="/groups" component={Groups}/>
                 <PrivateRoute path="/profile" component={Profile} />
                 <Route path="/about" component={About} />
                 <Route component={NoMatch} />

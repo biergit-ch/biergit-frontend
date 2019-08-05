@@ -2,11 +2,15 @@
     "common_nomatch": "No match for",
     "common_signin": "sign in",
     "common_signout": "sign out",
+    "common_create": "create",
+    "common_next": "next",
     "login_welcome": "Your Assistant For Socialized Drinking",
     "login_signin": "Sign In With Google And Invite Your Friends",
     "index_cheers": "Cheers",
     "index_invite": "Invite your friends now and create a group!",
     "groups_header": "Choose group",
     "group_creategroup": "Create new group",
-    "group_spendbeer": "Spend Beer"
+    "group_spendbeer": "Spend Beer",
+    "creategroup_header": "New Group",
+    "creategroup_name": "Group Name"
 }
