@@ -18,9 +18,11 @@ const useStyles = makeStyles((theme: Theme) =>
       textAlign: 'center',
     },
     main: {
+      flexGrow: 1,
       marginTop: theme.spacing(8),
       marginBottom: theme.spacing(2),
     },
+    toolbar: theme.mixins.toolbar,
     madeWithLove: {
       backgroundColor: theme.palette.primary.dark,
       padding: theme.spacing(2),
@@ -50,6 +52,7 @@ const App: React.FC = () => {
           </nav>
         </header>
         <main className={classes.main}>
+          <div className={classes.toolbar} />
           <Container className={classes.rootContainer}>
             <Routes />
           </Container>
