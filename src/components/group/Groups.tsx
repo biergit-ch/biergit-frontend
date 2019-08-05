@@ -76,7 +76,7 @@ const Groups: React.FC<GroupsProps> = (props: GroupsProps) => {
     const groups = useSelector((state: AppState) => state.group.groups.filter(group => group.members.some(userId => userId === currentUser.user_id)));
 
     const createGroup = () => {
-        history.push('/creategroup');
+        history.push('/groups/create');
     }
 
     return (

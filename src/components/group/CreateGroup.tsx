@@ -1,5 +1,22 @@
 import React, { useState } from 'react';
-import { Container, makeStyles, Theme, createStyles, Typography, List, Button, Avatar, Divider, TextField, Grid, ListItem, IconButton } from '@material-ui/core';
+import {
+    Container,
+    makeStyles,
+    Theme,
+    createStyles,
+    Typography,
+    List,
+    Button,
+    Avatar,
+    Divider,
+    Grid,
+    ListItem,
+    IconButton,
+    FormControl,
+    InputLabel,
+    Input,
+    FormHelperText
+} from '@material-ui/core';
 import CameraAltIcon from '@material-ui/icons/CameraAlt'
 
 import CreateGroupUser from '../user/CreateGroupUser';
@@ -15,6 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             textAlign: 'center',
+            flexGrow: 1,
         },
         createGroupButton: {
             background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
@@ -34,15 +52,14 @@ const useStyles = makeStyles((theme: Theme) =>
         inputFile: {
             display: 'none',
         },
+        groupName: {
+            margin: 10,
+        },
         flexContainer: {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'flex-start',
             padding: 0,
-        },
-        textField: {
-            marginLeft: theme.spacing(1),
-            marginRight: theme.spacing(1),
         },
     })
 );
@@ -136,17 +153,8 @@ const CreateGroup: React.FC<CreateGroupProps> = (props: CreateGroupProps) => {
             </List>
             <Divider variant="middle" className={classes.divider} />
             <Switch>
-                <Route path={`${props.match.path}/members`}>
-                    <Typography variant="h6">{t('creategroup_header')}</Typography>
-                    <List>
-                        {users.map(user =>
-                            <CreateGroupUser userId={user.user_id} toggleCheckedUser={toggleCheckedUser} />
-                        )}
-                    </List>
-                    <Button className={classes.createGroupButton} onClick={next}>{t('common_next')}</Button>
-                </Route>
                 <Route path={`${props.match.path}/details`}>
-                    <Grid container spacing={5}>
+                    <Grid container spacing={5} className={classes.root}>
                         <Grid item xs={12}>
                             <input
                                 accept="image/*"
@@ -162,18 +170,29 @@ const CreateGroup: React.FC<CreateGroupProps> = (props: CreateGroupProps) => {
                             </label>
                         </Grid>
                         <Grid item xs={12}>
-                            <TextField
-                                id="group-name"
-                                data-i18n="[label]creategroup_name"
-                                className={classes.textField}
-                                value={values.groupName}
-                                onChange={handleChange('groupName')}
-                            />
+                            <FormControl fullWidth className={classes.groupName}>
+                                <InputLabel htmlFor="group-name">{t('creategroup_name')}</InputLabel>
+                                <Input id="group-name"
+                                    required
+                                    aria-describedby="group-helper-text"
+                                    value={values.groupName}
+                                    onChange={handleChange('groupName')} />
+                                <FormHelperText id="group-helper-text">{t('creategroup_helpertext')}</FormHelperText>
+                            </FormControl>
                         </Grid>
                         <Grid item xs={12}>
                             <Button className={classes.createGroupButton} onClick={create}>{t('common_create')}</Button>
                         </Grid>
                     </Grid>
+                </Route>
+                <Route path={`${props.match.path}`}>
+                    <Typography variant="h6">{t('creategroup_header')}</Typography>
+                    <List>
+                        {users.map(user =>
+                            <CreateGroupUser userId={user.user_id} toggleCheckedUser={toggleCheckedUser} />
+                        )}
+                    </List>
+                    <Button className={classes.createGroupButton} onClick={next}>{t('common_next')}</Button>
                 </Route>
             </Switch>
 

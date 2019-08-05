@@ -26,7 +26,7 @@ const Index: React.FC = () => {
     const currentUser = useSelector((state: AppState) => state.user.currentUser);
 
     const createGroup = () => {
-        history.push('/groups/create/members');
+        history.push('/groups/create');
     }
 
     return (

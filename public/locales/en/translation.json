@@ -12,5 +12,6 @@
     "group_creategroup": "Create new group",
     "group_spendbeer": "Spend Beer",
     "creategroup_header": "New Group",
-    "creategroup_name": "Group Name"
+    "creategroup_name": "Group Name",
+    "creategroup_helpertext": "Specify a matching group name"
 }

@@ -12,5 +12,6 @@
     "group_creategroup": "Gruppe erstellen",
     "group_spendbeer": "Bier ausgeben",
     "creategroup_header": "Neue Gruppe",
-    "creategroup_name": "Gruppenname"
+    "creategroup_name": "Gruppenname",
+    "creategroup_helpertext": "Gib einen Gruppen Namen ein"
 }
