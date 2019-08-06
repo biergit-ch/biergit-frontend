@@ -1,18 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Route, Switch, RouteComponentProps } from 'react-router';
+import { Route, Switch, RouteComponentProps, withRouter } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
-import { Container, Theme, makeStyles, createStyles, Typography, List, ListItem, ListItemText, Fab, Grid, Avatar, ListItemAvatar, InputBase } from '@material-ui/core';
+import { Container, Theme, makeStyles, createStyles, Typography, Fab, Grid, InputBase } from '@material-ui/core';
 import { fade } from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AddIcon from '@material-ui/icons/Add';
 import SearchIcon from '@material-ui/icons/Search';
 
+import GroupList from './GroupList';
 import Group from './Group';
 import history from '../../history';
-import { AppState } from '../../store';
-import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -21,9 +19,6 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         addButton: {
             margin: theme.spacing(1),
-        },
-        groupAvatar: {
-            margin: 10
         },
         search: {
             position: 'relative',
@@ -72,9 +67,6 @@ const Groups: React.FC<GroupsProps> = (props: GroupsProps) => {
     const classes = useStyles();
     const { t } = useTranslation();
 
-    const currentUser = useSelector((state: AppState) => state.user.currentUser);
-    const groups = useSelector((state: AppState) => state.group.groups.filter(group => group.members.some(userId => userId === currentUser.user_id)));
-
     const createGroup = () => {
         history.push('/groups/create');
     }
@@ -103,16 +95,7 @@ const Groups: React.FC<GroupsProps> = (props: GroupsProps) => {
                             </div>
                         </Grid>
                         <Grid item xs={12}>
-                            <List>{(
-                                groups.map(group =>
-                                    <ListItem key={group.id} button component={Link} to={"/groups/" + group.id}>
-                                        <ListItemAvatar>
-                                            <Avatar src={group.picture} alt="Group Logo" className={classes.groupAvatar} />
-                                        </ListItemAvatar>
-                                        <ListItemText primary={group.name} />
-                                    </ListItem>
-                                ))}
-                            </List>
+                            <GroupList />
                         </Grid>
                         <Grid item xs={12}>
                             <Typography variant="body2">{t('group_creategroup')}</Typography>
@@ -133,4 +116,4 @@ const Groups: React.FC<GroupsProps> = (props: GroupsProps) => {
     )
 }
 
-export default Groups;
+export default withRouter(Groups);

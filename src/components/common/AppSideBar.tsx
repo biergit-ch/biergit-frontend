@@ -1,11 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { Theme, createStyles, List, ListItem, ListItemIcon, ListItemText, Divider, Typography } from '@material-ui/core';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import SendIcon from '@material-ui/icons/Send';
+import SettingsIcon from '@material-ui/icons/Settings';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { useTranslation } from 'react-i18next';
-import Groups from '../group/Groups';
-import history from '../../history';
+import GroupList from '../group/GroupList';
+import AddGroup from '../group/AddGroup';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -14,6 +15,12 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         fullList: {
             width: 'auto',
+        },
+        sideBarLeftMargin: {
+            marginLeft: theme.spacing(3),
+        },
+        sideBarListPadding: {
+            padding: theme.spacing(3),
         },
         toolbar: theme.mixins.toolbar,
 
@@ -27,18 +34,31 @@ const AppSideBar: React.FC = () => {
         <div>
             <div className={classes.toolbar} />
             <Divider />
-            <Typography variant="h6">
+            <Typography variant="h6" className={classes.sideBarLeftMargin}>
                 {t('common_groups')}
             </Typography>
-            <Groups />
+            <GroupList />
+            <AddGroup />
             <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
+            <List className={classes.sideBarListPadding}>
+                <ListItem button key="invite">
+                    <ListItemIcon>
+                        <SendIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={t('sidebar_invite')} />
+                </ListItem>
+                <ListItem button key="feedback">
+                    <ListItemIcon>
+                        <StarBorderIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={t('sidebar_feedback')} />
+                </ListItem>
+                <ListItem button key="settings">
+                    <ListItemIcon>
+                        <SettingsIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={t('sidebar_settings')} />
+                </ListItem>
             </List>
         </div>
     );
