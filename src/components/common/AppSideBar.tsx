@@ -30,6 +30,27 @@ const useStyles = makeStyles((theme: Theme) =>
 const AppSideBar: React.FC = () => {
     const classes = useStyles();
     const { t } = useTranslation();
+
+    const inviteClick = () => {
+        let newVariable: any;
+        newVariable = window.navigator;
+        if (newVariable.share) {
+            newVariable.share({
+                title: t('share_title'),
+                text: t('share_text'),
+                url: window.location.href
+            }).then(() => {
+                console.log('Thanks for sharing!');
+            })
+                .catch((err: Error) => {
+                    console.log(`Couldn't share because of`, err.message);
+                });
+        } else {
+            console.log('web share not supported');
+            window.location.href = `mailto:?body=&${t('share_text')}subject=${t('share_title')}`;
+        }
+    }
+
     return (
         <div>
             <div className={classes.toolbar} />
@@ -41,7 +62,7 @@ const AppSideBar: React.FC = () => {
             <AddGroup />
             <Divider />
             <List className={classes.sideBarListPadding}>
-                <ListItem button key="invite">
+                <ListItem button key="invite" onClick={inviteClick}>
                     <ListItemIcon>
                         <SendIcon />
                     </ListItemIcon>
