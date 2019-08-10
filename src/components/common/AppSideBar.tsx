@@ -7,6 +7,7 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { useTranslation } from 'react-i18next';
 import GroupList from '../group/GroupList';
 import AddGroup from '../group/AddGroup';
+import { useAuth0 } from '../../react-auth0-spa';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -30,6 +31,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const AppSideBar: React.FC = () => {
     const classes = useStyles();
     const { t } = useTranslation();
+    const { isAuthenticated }: any = useAuth0();
 
     const inviteClick = () => {
         let newVariable: any;
@@ -54,14 +56,18 @@ const AppSideBar: React.FC = () => {
     return (
         <div>
             <div className={classes.toolbar} />
-            <Divider />
-            <Typography variant="h6" className={classes.sideBarLeftMargin}>
-                {t('common_groups')}
-            </Typography>
-            <GroupList />
-            <AddGroup />
-            <Divider />
-            <List className={classes.sideBarListPadding}>
+            {isAuthenticated === true &&
+                <div>
+                    <Divider />
+                    <Typography variant="h6" className={classes.sideBarLeftMargin}>
+                        {t('common_groups')}
+                    </Typography>
+                    <GroupList />
+                    <AddGroup />
+                    <Divider />
+                </div>
+            }
+            <List>
                 <ListItem button key="invite" onClick={inviteClick}>
                     <ListItemIcon>
                         <SendIcon />
