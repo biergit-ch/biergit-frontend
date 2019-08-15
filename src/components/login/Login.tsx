@@ -34,25 +34,25 @@ const Login: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
 
     return (
         loading === true ? <Loading /> : isAuthenticated === false ?
-        <Container className={classes.root}>
-            <Grid container spacing={3}>
-                <Grid item xs={12}>
-                    <img src={logo} alt="logo" height="100" />
+            <Container className={classes.root}>
+                <Grid container spacing={3}>
+                    <Grid item xs={12}>
+                        <img src={logo} alt="logo" height="100" />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Typography variant="h6">{t('login_welcome')}</Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Typography variant="body2">{t('login_signin')}</Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <ExpandMoreIcon />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Button className={classes.loginButton} onClick={signIn}>{t('common_signin')}</Button>
+                    </Grid>
                 </Grid>
-                <Grid item xs={12}>
-                    <Typography variant="h6">{t('login_welcome')}</Typography>
-                </Grid>
-                <Grid item xs={12}>
-                    <Typography variant="body2">{t('login_signin')}</Typography>
-                </Grid>
-                <Grid item xs={12}>
-                    <ExpandMoreIcon />
-                </Grid>
-                <Grid item xs={12}>
-                    <Button className={classes.loginButton} onClick={signIn}>{t('common_signin')}</Button>
-                </Grid>
-            </Grid>
-        </Container> : <Redirect to='/home' />
+            </Container> : <Redirect to='/home' />
     );
 }
 
