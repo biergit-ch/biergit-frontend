@@ -11,6 +11,7 @@ import NoMatch from './components/common/NoMatch';
 import { useAuth0 } from './react-auth0-spa';
 import Loading from './components/common/Loading';
 import CreateGroup from './components/group/CreateGroup';
+import { PrivacyPolicy } from './components/about/PrivacyPolicy';
 
 const Routes: React.FC = () => {
     const { loading }: any = useAuth0();
@@ -27,7 +28,8 @@ const Routes: React.FC = () => {
                 <PrivateRoute path="/groups/create" component={CreateGroup} />
                 <PrivateRoute path="/groups" component={Groups}/>
                 <PrivateRoute path="/profile" component={Profile} />
-                <Route path="/about" component={About} />
+                <Route path="/about" exact component={About} />
+                <Route path="/about/privacypolicy" component={PrivacyPolicy} />
                 <Route component={NoMatch} />
             </Switch>
         )
