@@ -35,7 +35,7 @@ ReactDOM.render(
             redirect_uri={window.location.origin}
             onRedirectCallback={onRedirectCallback}
         >
-            <Suspense fallback={Loading}>
+            <Suspense fallback={<Loading />}>
                 <Provider store={store}>
                     <App />
                 </Provider>

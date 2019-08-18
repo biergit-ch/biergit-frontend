@@ -12,7 +12,6 @@ import {
   Hidden,
 } from '@material-ui/core';
 
-// import HomeIcon from '@material-ui/icons/Home';
 import MenuIcon from '@material-ui/icons/Menu';
 import AppSideBar from './AppSideBar';
 import theme from '../../theme';
@@ -46,10 +45,10 @@ interface AppNavBarProps extends RouteComponentProps {
 const AppNavBar: React.FC<AppNavBarProps> = (props: AppNavBarProps) => {
   const { container } = props;
   const classes = useStyles();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
   function handleDrawerToggle() {
-    setMobileOpen(!mobileOpen);
+    setOpen(!open);
   }
 
   return (
@@ -71,19 +70,18 @@ const AppNavBar: React.FC<AppNavBarProps> = (props: AppNavBarProps) => {
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer}>
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">
           <Drawer
             container={container}
             variant="temporary"
             anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-            open={mobileOpen}
+            open={open}
             onClose={handleDrawerToggle}
             classes={{
               paper: classes.drawerPaper,
             }}
             ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
+              keepMounted: true,
             }}
           >
             <AppSideBar />
