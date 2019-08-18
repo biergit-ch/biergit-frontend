@@ -21,25 +21,24 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    drawer: {
-      [theme.breakpoints.up('sm')]: {
-        width: drawerWidth,
-        flexShrink: 0,
-      },
-    },
     appBar: {
       marginLeft: drawerWidth,
-      [theme.breakpoints.up('sm')]: {
+      [theme.breakpoints.up('xl')]: {
         width: `calc(100% - ${drawerWidth}px)`,
       },
     },
     menuButton: {
       marginRight: theme.spacing(2),
-      [theme.breakpoints.up('sm')]: {
+      [theme.breakpoints.up('xl')]: {
         display: 'none',
       },
     },
-    toolbar: theme.mixins.toolbar,
+    drawer: {
+      [theme.breakpoints.up('xl')]: {
+        width: drawerWidth,
+        flexShrink: 0,
+      },
+    },
     drawerPaper: {
       width: drawerWidth,
     },
@@ -54,9 +53,6 @@ const AppNavBar: React.FC<AppNavBarProps> = (props: AppNavBarProps) => {
   const { container } = props;
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  // const navigateHome = () => {
-  //   props.history.push('/');
-  // }
 
   function handleDrawerToggle() {
     setMobileOpen(!mobileOpen);
@@ -65,7 +61,7 @@ const AppNavBar: React.FC<AppNavBarProps> = (props: AppNavBarProps) => {
   return (
     <div>
       <AppBar position="static" color="primary">
-      <Toolbar>
+        <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -80,7 +76,7 @@ const AppNavBar: React.FC<AppNavBarProps> = (props: AppNavBarProps) => {
           </Typography>
         </Toolbar>
       </AppBar>
-      <nav className={classes.drawer} aria-label="mailbox folders">
+      <nav className={classes.drawer}>
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">
           <Drawer
@@ -96,18 +92,7 @@ const AppNavBar: React.FC<AppNavBarProps> = (props: AppNavBarProps) => {
               keepMounted: true, // Better open performance on mobile.
             }}
           >
-            <AppSideBar/>
-          </Drawer>
-        </Hidden>
-        <Hidden xsDown implementation="css">
-          <Drawer
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            variant="permanent"
-            open
-          >
-            <AppSideBar/>
+            <AppSideBar />
           </Drawer>
         </Hidden>
       </nav>
