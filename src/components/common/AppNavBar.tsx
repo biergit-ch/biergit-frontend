@@ -21,12 +21,6 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    appBar: {
-      marginLeft: drawerWidth,
-      [theme.breakpoints.up('xl')]: {
-        width: `calc(100% - ${drawerWidth}px)`,
-      },
-    },
     menuButton: {
       marginRight: theme.spacing(2),
       [theme.breakpoints.up('xl')]: {
