@@ -13,6 +13,7 @@ import { useAuth0 } from '../../react-auth0-spa';
 
 const useStyles = makeStyles({
     bottomNav: {
+        width: '100%',
     },
 });
 

@@ -36,6 +36,9 @@ const useStyles = makeStyles((theme: Theme) =>
     footer: {
       marginTop: 'auto',
       backgroundColor: 'white',
+      width: '100%',
+      position: 'fixed',
+      bottom: 0,
     },
   }),
 );
@@ -58,7 +61,7 @@ const App: React.FC = () => {
           </Container>
         </main>
         <footer className={classes.footer}>
-          <Container maxWidth="xl" className={classes.madeWithLove}>
+          <Container maxWidth={false} className={classes.madeWithLove}>
             Made with <span role="img" aria-label="heart">❤️</span> in <b>Zurich</b>
           </Container>
           <BottomNav />
