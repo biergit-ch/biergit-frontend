@@ -1,11 +1,11 @@
 import React from "react";
-import { ReactComponent as Logo } from './images/loading.svg';
+import { ReactComponent as Logo } from "./images/loading.svg";
 
-const Loading: React.FC = () =>  {
+const Loading: React.FC = () => {
   return (
     <div className="spinner">
       <Logo />
     </div>
   );
-}
+};
 export default Loading;
