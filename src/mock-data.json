@@ -1,135 +1,135 @@
 {
-    "users": [
-        {
-            "user_id": "google-oauth2|103823906918356119896",
-            "name": "Luca Hostettler",
-            "picture": "https://avatars1.githubusercontent.com/u/5907956?s=460&v=4",
-            "nickname": "lucah",
-            "username": "lucah",
-            "email": "email@user1"
-        },
-        {
-            "user_id": "google-oauth2|103980109947542416087",
-            "name": "Jan Minder",
-            "picture": "https://avatars2.githubusercontent.com/u/1324909?s=460&v=4",
-            "nickname": "janm",
-            "username": "janm",
-            "email": "email@user2"
-        },
-        {
-            "user_id": "google-oauth2|113996911112137945113",
-            "name": "Marc Bischof",
-            "picture": "https://avatars3.githubusercontent.com/u/18515653?s=460&v=4",
-            "nickname": "marcb",
-            "username": "marcb",
-            "email": "email@user3"
-        },
-        {
-            "user_id": "google-oauth2|110808935329873249109",
-            "name": "Rehan Beg Mirza",
-            "picture": "https://avatars2.githubusercontent.com/u/5840538?s=460&v=4",
-            "nickname": "rehanbeg",
-            "username": "rehanbeg",
-            "email": "email@user4"
-        }
-    ],
-    "groups": [
-        {
-            "id": "63f34cae-f6c4-4f2a-b627-e7f853c0c5e6",
-            "name": "Juventus Sauftruppe",
-            "picture": "https://media.licdn.com/dms/image/C560BAQFp7WLBPFMc_g/company-logo_200_200/0?e=2159024400&v=beta&t=xj3EMgnazTqSAdplYjeUFTYaQ6ER70eAYKRIhEvW9xg",
-            "members": [
-                "google-oauth2|103823906918356119896",
-                "google-oauth2|103980109947542416087",
-                "google-oauth2|113996911112137945113",
-                "google-oauth2|110808935329873249109"
-            ]
-        },
-        {
-            "id": "c5e47e0c-0f88-49c0-918e-b10574be4ad3",
-            "name": "SwisscomSauf",
-            "picture": "https://upload.wikimedia.org/wikipedia/de/thumb/2/24/Logo_Swisscom.svg/1200px-Logo_Swisscom.svg.png",
-            "members": [
-                "google-oauth2|103980109947542416087",
-                "google-oauth2|113996911112137945113"
-            ]
-        },
-        {
-            "id": "130394ba-8d71-45b0-ab0e-afbac40794cc",
-            "name": "Berlin Trinkspass",
-            "picture": "data:image/jpeg;base64,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",
-            "members": [
-                "google-oauth2|103823906918356119896",
-                "google-oauth2|113996911112137945113"
-            ]
-        }
-    ],
-    "expenses": [
-        {
-            "context": "63f34cae-f6c4-4f2a-b627-e7f853c0c5e6",
-            "amount": 1,
-            "from": "google-oauth2|103823906918356119896",
-            "to": "google-oauth2|103980109947542416087"
-        },
-        {
-            "context": "63f34cae-f6c4-4f2a-b627-e7f853c0c5e6",
-            "amount": 1,
-            "from": "google-oauth2|103823906918356119896",
-            "to": "google-oauth2|113996911112137945113"
-        },
-        {
-            "context": "63f34cae-f6c4-4f2a-b627-e7f853c0c5e6",
-            "amount": 1,
-            "from": "google-oauth2|103823906918356119896",
-            "to": "google-oauth2|110808935329873249109"
-        },
-        {
-            "context": "63f34cae-f6c4-4f2a-b627-e7f853c0c5e6",
-            "amount": 1,
-            "from": "google-oauth2|103980109947542416087",
-            "to": "google-oauth2|103823906918356119896"
-        },
-        {
-            "context": "63f34cae-f6c4-4f2a-b627-e7f853c0c5e6",
-            "amount": 1,
-            "from": "google-oauth2|103980109947542416087",
-            "to": "google-oauth2|113996911112137945113"
-        },
-        {
-            "context": "63f34cae-f6c4-4f2a-b627-e7f853c0c5e6",
-            "amount": 1,
-            "from": "google-oauth2|103980109947542416087",
-            "to": "google-oauth2|110808935329873249109"
-        },
-        {
-            "context": "63f34cae-f6c4-4f2a-b627-e7f853c0c5e6",
-            "amount": 1,
-            "from": "google-oauth2|103980109947542416087",
-            "to": "google-oauth2|103823906918356119896"
-        },
-        {
-            "context": "63f34cae-f6c4-4f2a-b627-e7f853c0c5e6",
-            "amount": 1,
-            "from": "google-oauth2|103980109947542416087",
-            "to": "google-oauth2|113996911112137945113"
-        },
-        {
-            "context": "63f34cae-f6c4-4f2a-b627-e7f853c0c5e6",
-            "amount": 1,
-            "from": "google-oauth2|103980109947542416087",
-            "to": "google-oauth2|110808935329873249109"
-        },
-        {
-            "context": "c5e47e0c-0f88-49c0-918e-b10574be4ad3",
-            "amount": 1,
-            "from": "google-oauth2|113996911112137945113",
-            "to": "google-oauth2|110808935329873249109"
-        },
-        {
-            "context": "c5e47e0c-0f88-49c0-918e-b10574be4ad3",
-            "amount": 1,
-            "from": "google-oauth2|113996911112137945113",
-            "to": "google-oauth2|110808935329873249109"
-        }
-    ]
+  "users": [
+    {
+      "user_id": "google-oauth2|103823906918356119896",
+      "name": "Luca Hostettler",
+      "picture": "https://avatars1.githubusercontent.com/u/5907956?s=460&v=4",
+      "nickname": "lucah",
+      "username": "lucah",
+      "email": "email@user1"
+    },
+    {
+      "user_id": "google-oauth2|103980109947542416087",
+      "name": "Jan Minder",
+      "picture": "https://avatars2.githubusercontent.com/u/1324909?s=460&v=4",
+      "nickname": "janm",
+      "username": "janm",
+      "email": "email@user2"
+    },
+    {
+      "user_id": "google-oauth2|113996911112137945113",
+      "name": "Marc Bischof",
+      "picture": "https://avatars3.githubusercontent.com/u/18515653?s=460&v=4",
+      "nickname": "marcb",
+      "username": "marcb",
+      "email": "email@user3"
+    },
+    {
+      "user_id": "google-oauth2|110808935329873249109",
+      "name": "Rehan Beg Mirza",
+      "picture": "https://avatars2.githubusercontent.com/u/5840538?s=460&v=4",
+      "nickname": "rehanbeg",
+      "username": "rehanbeg",
+      "email": "email@user4"
+    }
+  ],
+  "groups": [
+    {
+      "id": "63f34cae-f6c4-4f2a-b627-e7f853c0c5e6",
+      "name": "Juventus Sauftruppe",
+      "picture": "https://media.licdn.com/dms/image/C560BAQFp7WLBPFMc_g/company-logo_200_200/0?e=2159024400&v=beta&t=xj3EMgnazTqSAdplYjeUFTYaQ6ER70eAYKRIhEvW9xg",
+      "members": [
+        "google-oauth2|103823906918356119896",
+        "google-oauth2|103980109947542416087",
+        "google-oauth2|113996911112137945113",
+        "google-oauth2|110808935329873249109"
+      ]
+    },
+    {
+      "id": "c5e47e0c-0f88-49c0-918e-b10574be4ad3",
+      "name": "SwisscomSauf",
+      "picture": "https://upload.wikimedia.org/wikipedia/de/thumb/2/24/Logo_Swisscom.svg/1200px-Logo_Swisscom.svg.png",
+      "members": [
+        "google-oauth2|103980109947542416087",
+        "google-oauth2|113996911112137945113"
+      ]
+    },
+    {
+      "id": "130394ba-8d71-45b0-ab0e-afbac40794cc",
+      "name": "Berlin Trinkspass",
+      "picture": "data:image/jpeg;base64,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",
+      "members": [
+        "google-oauth2|103823906918356119896",
+        "google-oauth2|113996911112137945113"
+      ]
+    }
+  ],
+  "expenses": [
+    {
+      "context": "63f34cae-f6c4-4f2a-b627-e7f853c0c5e6",
+      "amount": 1,
+      "from": "google-oauth2|103823906918356119896",
+      "to": "google-oauth2|103980109947542416087"
+    },
+    {
+      "context": "63f34cae-f6c4-4f2a-b627-e7f853c0c5e6",
+      "amount": 1,
+      "from": "google-oauth2|103823906918356119896",
+      "to": "google-oauth2|113996911112137945113"
+    },
+    {
+      "context": "63f34cae-f6c4-4f2a-b627-e7f853c0c5e6",
+      "amount": 1,
+      "from": "google-oauth2|103823906918356119896",
+      "to": "google-oauth2|110808935329873249109"
+    },
+    {
+      "context": "63f34cae-f6c4-4f2a-b627-e7f853c0c5e6",
+      "amount": 1,
+      "from": "google-oauth2|103980109947542416087",
+      "to": "google-oauth2|103823906918356119896"
+    },
+    {
+      "context": "63f34cae-f6c4-4f2a-b627-e7f853c0c5e6",
+      "amount": 1,
+      "from": "google-oauth2|103980109947542416087",
+      "to": "google-oauth2|113996911112137945113"
+    },
+    {
+      "context": "63f34cae-f6c4-4f2a-b627-e7f853c0c5e6",
+      "amount": 1,
+      "from": "google-oauth2|103980109947542416087",
+      "to": "google-oauth2|110808935329873249109"
+    },
+    {
+      "context": "63f34cae-f6c4-4f2a-b627-e7f853c0c5e6",
+      "amount": 1,
+      "from": "google-oauth2|103980109947542416087",
+      "to": "google-oauth2|103823906918356119896"
+    },
+    {
+      "context": "63f34cae-f6c4-4f2a-b627-e7f853c0c5e6",
+      "amount": 1,
+      "from": "google-oauth2|103980109947542416087",
+      "to": "google-oauth2|113996911112137945113"
+    },
+    {
+      "context": "63f34cae-f6c4-4f2a-b627-e7f853c0c5e6",
+      "amount": 1,
+      "from": "google-oauth2|103980109947542416087",
+      "to": "google-oauth2|110808935329873249109"
+    },
+    {
+      "context": "c5e47e0c-0f88-49c0-918e-b10574be4ad3",
+      "amount": 1,
+      "from": "google-oauth2|113996911112137945113",
+      "to": "google-oauth2|110808935329873249109"
+    },
+    {
+      "context": "c5e47e0c-0f88-49c0-918e-b10574be4ad3",
+      "amount": 1,
+      "from": "google-oauth2|113996911112137945113",
+      "to": "google-oauth2|110808935329873249109"
+    }
+  ]
 }
