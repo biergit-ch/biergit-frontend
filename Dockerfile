@@ -1,22 +1,15 @@
-# Docker Image which is used as foundation to create
-# a custom Docker Image with this Dockerfile
-FROM node:10
 
-# A directory within the virtualized Docker environment
-# Becomes more relevant when using Docker Compose later
-WORKDIR /usr/src/app
+FROM nginx:alpine
 
-# Copies package.json and package-lock.json to Docker environment
-COPY package*.json ./
+## Copy our default nginx config
+COPY config/nginx.conf /etc/nginx/conf.d/
 
-# Installs all node packages
-RUN npm install
+## Remove default nginx website
+RUN rm -rf /usr/share/nginx/html/*
 
-# Copies everything over to Docker environment
-COPY . .
+## From ‘builder’ stage copy over the artifacts in dist folder to default nginx public folder
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Uses port which is used by the actual application
-EXPOSE 3000
+EXPOSE 80
 
-# Finally runs the application
-CMD [ "npm", "start" ]
+CMD ["nginx", "-g", "daemon off;"]
