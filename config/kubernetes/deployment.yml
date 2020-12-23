@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: biergit-frontend-deployment
+  labels:
+    app: biergit-frontend
+    phase: dev
+    deployment: v1
+    tier: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: biergit-frontend
+  template:
+    metadata:
+      labels:
+        app: biergit-frontend
+    spec:
+      containers:
+        - name: biergit-frontend
+          imagePullPolicy: Always
+          image: unlockedluca/biergit-frontend:latest
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: dc-ffv7f

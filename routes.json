@@ -1,0 +1,5 @@
+{
+  "/hello/beer": "/beer",
+  "/users/me": "/me",
+  "/expenses/:id/transactions": "/transactions/:id"
+}

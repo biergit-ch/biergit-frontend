@@ -1,0 +1,106 @@
+{
+  "users": [
+    {
+      "id": "5de8d93d4bb3c73176a82b1b",
+      "firstName": "Marc",
+      "lastName": "Bischof",
+      "fullName": "Marc Bischof",
+      "email": "booooza@gmail.com",
+      "pictureUrl": "https://lh3.googleusercontent.com/a-/AAuE7mCqPGM2cKOfHo-_L7i3FWWY-wkxJeWxyBMls35waIY",
+      "importedAt": "2019-12-05T10:17:33.852+0000"
+    },
+    {
+      "id": "5de8f60d889b9a1ba26f290e",
+      "firstName": "Luca",
+      "lastName": "Hostettler",
+      "fullName": "Luca Hostettler",
+      "email": "hostettler.luca1896@gmail.com",
+      "pictureUrl": "https://lh3.googleusercontent.com/a-/AAuE7mC_SkfzymGbbaX9pGXHQTQKUpoloyzfOJ28GvM53yQ",
+      "importedAt": "2019-12-05T12:20:29.301+0000"
+    }
+  ],
+  "me": {
+    "id": "5de8d93d4bb3c73176a82b1b",
+    "firstName": "Marc",
+    "lastName": "Bischof",
+    "fullName": "Marc Bischof",
+    "email": "booooza@gmail.com",
+    "pictureUrl": "https://lh3.googleusercontent.com/a-/AAuE7mCqPGM2cKOfHo-_L7i3FWWY-wkxJeWxyBMls35waIY",
+    "importedAt": "2019-12-05T10:17:33.852+0000"
+  },
+  "beer": { "name": "biergit" },
+  "expenses": [
+    {
+      "transactions": [
+        {
+          "userFrom": {
+            "id": "5de8d655d677d8165155a68c",
+            "firstName": "Tester",
+            "lastName": "Group1",
+            "fullName": "Tester Group1",
+            "email": "testi@provider.net",
+            "pictureUrl": "https://secure.gravatar.com/avatar/d1a4927d65d5228d8f3c5d11cc040afe?s=200&d=identicon",
+            "importedAt": "2019-12-05T10:05:09.675+0000"
+          },
+          "userTo": {
+            "id": "5de8d655d677d8165155a68d",
+            "firstName": "Heriberto",
+            "lastName": "Gutmann",
+            "fullName": "Heriberto Gutmann",
+            "email": "gbni57@gmail.com",
+            "pictureUrl": "https://secure.gravatar.com/avatar/d1a4927d65d5228d8f3c5d11cc040afe?s=200&d=identicon",
+            "importedAt": "2019-12-05T10:05:09.691+0000"
+          },
+          "transactionDate": "2019-12-05T10:05:09.693+0000",
+          "amount": 1
+        },
+        {
+          "userFrom": {
+            "id": "5de8d655d677d8165155a68d",
+            "firstName": "Heriberto",
+            "lastName": "Gutmann",
+            "fullName": "Heriberto Gutmann",
+            "email": "gbni57@gmail.com",
+            "pictureUrl": "https://secure.gravatar.com/avatar/d1a4927d65d5228d8f3c5d11cc040afe?s=200&d=identicon",
+            "importedAt": "2019-12-05T10:05:09.691+0000"
+          },
+          "userTo": {
+            "id": "5de8d655d677d8165155a68c",
+            "firstName": "Tester",
+            "lastName": "Group1",
+            "fullName": "Tester Group1",
+            "email": "testi@provider.net",
+            "pictureUrl": "https://secure.gravatar.com/avatar/d1a4927d65d5228d8f3c5d11cc040afe?s=200&d=identicon",
+            "importedAt": "2019-12-05T10:05:09.675+0000"
+          },
+          "transactionDate": "2019-12-05T10:05:09.693+0000",
+          "amount": 2
+        }
+      ],
+      "id": "5de8d655d677d8165155a68e",
+      "attendeeOne": {
+        "id": "5de8d655d677d8165155a68c",
+        "firstName": "Tester",
+        "lastName": "Group1",
+        "fullName": "Tester Group1",
+        "email": "testi@provider.net",
+        "pictureUrl": "https://secure.gravatar.com/avatar/d1a4927d65d5228d8f3c5d11cc040afe?s=200&d=identicon",
+        "importedAt": "2019-12-05T10:05:09.675+0000"
+      },
+      "attendeeTwo": {
+        "id": "5de8d655d677d8165155a68d",
+        "firstName": "Heriberto",
+        "lastName": "Gutmann",
+        "fullName": "Heriberto Gutmann",
+        "email": "gbni57@gmail.com",
+        "pictureUrl": "https://secure.gravatar.com/avatar/d1a4927d65d5228d8f3c5d11cc040afe?s=200&d=identicon",
+        "importedAt": "2019-12-05T10:05:09.691+0000"
+      },
+      "userFromDiff": null,
+      "context": {
+        "type": "direct",
+        "reference": "5de8d655d677d8165155a68c_5de8d655d677d8165155a68d"
+      }
+    }
+  ]
+}
