@@ -20,8 +20,8 @@ spec:
       containers:
         - name: biergit-frontend
           imagePullPolicy: Always
-          image: unlockedluca/biergit-frontend:latest
+          image: ghcr.io/biergit-ch/biergit-frontend:latest
           ports:
             - containerPort: 80
       imagePullSecrets:
-        - name: dc-ffv7f
+        - name: ghcr
